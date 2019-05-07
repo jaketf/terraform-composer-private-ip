@@ -22,10 +22,6 @@ and set the appropriate variables.
 - Run `terraform init` to install the appropriate providers.
 - `terraform apply`
 
-#### Note on Email
-This module also overrides some `smtp` values in the airflow config. 
-However, to get emailing working you will need to enable the [SendGrid API](https://console.cloud.google.com/marketplace/details/sendgrid-app/sendgrid-email?filter=solution-type:service&q=sendgrid%20email%20api&id=1943c2ef-912f-4529-af14-ba0bea3c0e96) from the GCP marketplace. Once this is activated you will need to grab thee API key and set the `SENDGRID_API_KEY` environment variable. This can bee edited in the cloud console. You can read more about this in the [configuring SendGrid email service](https://cloud.google.com/composer/docs/how-to/managing/creating#configuring_sendgrid_email_services) section of the docs.
-Alternitively, you could set up a third party email service.
 
 ## Inputs
 
