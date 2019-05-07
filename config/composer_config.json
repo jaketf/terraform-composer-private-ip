@@ -1,0 +1,30 @@
+{
+	"name": "projects/${project}/locations/${region}/environments/${name}",
+	"config": {
+		"nodeCount": ${node-count},
+		"nodeConfig": {
+			"machineType": "projects/${project}/zones/${zone}/machineTypes/${machine-type}",
+			"diskSizeGb": 100,
+			"ipAllocationPolicy": {
+				"useIpAliases": true
+			},
+			"network": "projects/${project}/global/networks/${network}",
+			"subnetwork": "projects/${project}/regions/${region}/subnetworks/${composer-subnet}"
+		},
+		"softwareConfig": {
+			"imageVersion": "${composer-image}",
+			"pythonVersion": "3",
+            "envVariables": {
+                "SENDGRID_MAIL_FROM": "noreply-composer@pbm.com",
+                "SENDGRID_API_KEY": "PLACEHOLDER"
+            }
+		},
+        "privateEnvironmentConfig": {
+            "enablePrivateEnvironment": true,
+            "privateClusterConfig": {
+                "enablePrivateEndpoint": true,
+                "masterIpv4CidrBlock": "172.16.0.0/28"
+            }
+        }
+	}
+}
